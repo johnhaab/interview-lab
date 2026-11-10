@@ -4,6 +4,8 @@ release/
 *.log
 .DS_Store
 Thumbs.db
+.voice-validation/
+coverage/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal

@@ -2,6 +2,8 @@
 
 A minimal Electron desktop app using React, TypeScript, Tailwind CSS, shadcn/ui, Drizzle ORM, and SQLite. It includes hot reload during development, a secure typed preload bridge, and packaging for Windows and macOS.
 
+The renderer opens on a minimal home screen. The local voice playground is available automatically in development and hidden from production builds unless `VITE_ENABLE_VOICE_PLAYGROUND=true` is set while building. See [the voice foundation notes](docs/voice.md) for architecture, model licenses, measurements, and integration tests.
+
 ## Requirements
 
 - Node.js 22.12+ or 24+
@@ -16,12 +18,20 @@ npm run dev
 
 The renderer hot-reloads when React or CSS changes. Electron restarts when main-process or preload code changes.
 
+To deliberately include the development voice playground in a production build:
+
+```powershell
+$env:VITE_ENABLE_VOICE_PLAYGROUND='true'
+npm.cmd run build
+```
+
 On Windows PowerShell systems that block `npm.ps1`, run the same commands with `npm.cmd`, for example `npm.cmd run dev`.
 
 ## Validate and build
 
 ```bash
 npm run typecheck
+npm test
 npm run build
 ```
 
@@ -60,4 +70,4 @@ The renderer uses the `@/` alias and the shadcn Nova style. Add more components 
 npx shadcn@latest add card
 ```
 
-Before shipping, change `build.appId`, `build.productName`, author metadata, and add your own app icons in `package.json`.
+Before shipping, configure `build.appId`, `build.productName`, author metadata, and application icons in `package.json`.

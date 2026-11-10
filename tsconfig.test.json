@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": ["node"],
+    "rootDir": ".",
+    "outDir": ".voice-validation/test-build"
+  },
+  "include": [
+    "tests/**/*.ts",
+    "src/main/voice/**/*.ts",
+    "src/shared/voice.ts",
+    "src/shared/TranscriptProcessor.ts"
+  ]
+}
